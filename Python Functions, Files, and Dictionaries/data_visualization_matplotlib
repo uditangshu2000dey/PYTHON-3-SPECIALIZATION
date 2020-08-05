@@ -1,0 +1,33 @@
+"""For the scatterplot that your peer submitted, you will check to see if the following characteristics are true:
+The X axis represents the Net Score.
+The Y axis represents the Number of Retweets.
+"""
+#Importing matplotlib in order to use scatter() etc.
+import matplotlib.pyplot as plt
+
+#Reading the CSV into a List of line strings
+with open("Data.csv", "r") as data:
+    raw_data = data.readlines()
+    header_data = raw_data[0]
+    tweet_data = raw_data[1:]
+
+#Extracting Data into list for x-axis is first element in string 
+x = []
+for x_dat in tweet_data:
+    x_dat_lst = x_dat.strip().split(";")
+    x.append(int(x_dat_lst[-1])) #Net Score is last element in string
+
+#Extracting Data into list for y-axis --> number of retweets
+y = []
+for y_dat in tweet_data:
+    y_dat_lst = y_dat.strip().split(";")
+    y.append(int(y_dat_lst[0]))
+
+plt.title('Twitter Sentiment Scatterplot')
+plt.xlabel('Net Score')
+plt.ylabel('Number of Retweets')
+#Creating the Scatterplot
+plt.scatter(x, y)
+
+#Showing the Scatterplot
+plt.show()

@@ -1,0 +1,292 @@
+###1) Write a function, sublist, that takes in a list of numbers as the parameter. 
+In the function, use a while loop to return a sublist of the input list. The sublist should contain the same values of the original list 
+up until it reaches the number 5 (it should not contain the number 5).
+###
+def sublist(num_lst):
+    num_sublst = []
+    i = 0
+    while i < len(num_lst):
+        if num_lst[i] == 5:
+            break    
+        num_sublst.append(num_lst[i])
+        i = i + 1
+    return num_sublst
+    
+###2) Write a function called check_nums that takes a list as its parameter, and contains a while loop that only stops once the element of the list is the number 7.
+What is returned is a list of all of the numbers up until it reaches 7.
+###
+def check_nums(num_lst):
+    i = 0
+    sublst = []
+    while i < len(num_lst):
+        if num_lst[i] == 7:
+            break
+        sublst.append(num_lst[i])
+        i += 1
+    return sublst
+
+###3) Write a function, sublist, that takes in a list of strings as the parameter. In the function, use a while loop to return a sublist of the input list. 
+The sublist should contain the same values of the original list up until it reaches the string “STOP” (it should not contain the string “STOP”).
+###
+def sublist(str_lst):
+    sublist = list()
+    i = 0
+    while "STOP" != str_lst[i] and i < len(str_lst):
+        sublist.append(str_lst[i])
+        i += 1
+    return sublist
+    
+ ###4) Write a function called stop_at_z that iterates through a list of strings. Using a while loop, append each string to a new list until the string that appears is “z”. 
+ The function should return the new list.
+ ###
+ def stop_at_z(str_lst):
+    new_lst = []
+    i = 0
+    while "z" != str_lst[i] and i < len(str_lst):
+        new_lst.append(str_lst[i])
+        i += 1
+    return new_lst
+    
+ ###5) Below is a for loop that works. Underneath the for loop, rewrite the problem so that it does the same thing, but using a while loop instead of a for loop. 
+ Assign the accumulated total in the while loop code to the variable sum2. Once complete, sum2 should equal sum1.
+ ###
+ 
+sum1 = 0
+
+lst = [65, 78, 21, 33]
+
+for x in lst:
+    sum1 = sum1 + x
+
+#solution below
+sum2 = 0
+i = 0
+while i < len(lst):
+    sum2 += lst[i]
+    i += 1
+ 
+ ###
+course_2_assessment_6
+Due: 2018-11-25 01:32:00
+Score: 0 of 5 = 0.0%
+Description: Assessment for More about Iteration lesson
+
+Questions
+Not yet graded
+Write a function, sublist, that takes in a list of numbers as the parameter. In the function, use a while loop to return a sublist of the input list. The sublist should contain the same values of the original list up until it reaches the number 5 (it should not contain the number 5).
+
+6.5.2020, 21:59:59 - 28 of 28
+def sublist(num_lst):
+    num_sublst = []
+    i = 0
+    while i < len(num_lst):
+        if num_lst[i] == 5:
+            break    
+        num_sublst.append(num_lst[i])
+        i = i + 1
+    return num_sublst
+1
+def sublist(num_lst):
+2
+    num_sublst = []
+3
+    i = 0
+4
+    while i < len(num_lst):
+5
+        if num_lst[i] == 5:
+6
+            break    
+7
+        num_sublst.append(num_lst[i])
+8
+        i = i + 1
+9
+    return num_sublst
+ActiveCode (ac14_10_1)
+
+Result	Actual Value	Expected Value	Notes
+Pass	[1, 2, 3, 4]	[1, 2, 3, 4]	Testing that sublist([1, 2, 3, 4, 5, 6, 7, 8]) returns [1, 2, 3, 4]
+Pass	[]	[]	Testing that sublist([5]) returns []
+Pass	[8, 6]	[8, 6]	Testing that sublist([8, 6, 5]) returns [8, 6]
+Pass	[1, 6, 2, 3, 9]	[1, 6, 2, 3, 9]	Testing that sublist([1, 6, 2, 3, 9]) returns ([1, 6, 2, 3, 9])
+You passed: 100.0% of the tests
+
+Not yet graded
+Write a function called check_nums that takes a list as its parameter, and contains a while loop that only stops once the element of the list is the number 7. What is returned is a list of all of the numbers up until it reaches 7.
+
+6.5.2020, 22:02:07 - 2 of 2
+def check_nums(num_lst):
+    i = 0
+    sublst = []
+    while i < len(num_lst):
+        if num_lst[i] == 7:
+            break
+        sublst.append(num_lst[i])
+        i += 1
+    return sublst
+1
+def check_nums(num_lst):
+2
+    i = 0
+3
+    sublst = []
+4
+    while i < len(num_lst):
+5
+        if num_lst[i] == 7:
+6
+            break
+7
+        sublst.append(num_lst[i])
+8
+        i += 1
+9
+    return sublst
+ActiveCode (ac14_10_2)
+
+Result	Actual Value	Expected Value	Notes
+Pass	[0, 2..., 14]	[0, 2..., 14]	Testing that check_nums stops on the correct postion with input [0,2,4,9,2,3,6,8,12,14,7,9,10,8,3]
+Pass	[9, 3..., 10]	[9, 3..., 10]	Testing that check_nums stops on the correct position with input [9,302,4,62,78,97,10,7,8,23,53,1]
+Pass	[]	[]	Testing that check_nums stops on the correct position with input [7,8,3,2,4,51]
+Pass	[1, 6, 2, 3, 9]	[1, 6, 2, 3, 9]	Testing that check_nums([1, 6, 2, 3, 9]) returns ([1, 6, 2, 3, 9])
+You passed: 100.0% of the tests
+
+Not yet graded
+Write a function, sublist, that takes in a list of strings as the parameter. In the function, use a while loop to return a sublist of the input list. The sublist should contain the same values of the original list up until it reaches the string “STOP” (it should not contain the string “STOP”).
+
+6.5.2020, 22:06:18 - 6 of 6
+def sublist(str_lst):
+    sublist = list()
+    i = 0
+    while "STOP" != str_lst[i] and i < len(str_lst):
+        sublist.append(str_lst[i])
+        i += 1
+    return sublist
+1
+def sublist(str_lst):
+2
+    sublist = list()
+3
+    i = 0
+4
+    while "STOP" != str_lst[i] and i < len(str_lst):
+5
+        sublist.append(str_lst[i])
+6
+        i += 1
+7
+    return sublist
+8
+​
+ActiveCode (ac14_10_3)
+
+Result	Actual Value	Expected Value	Notes
+Pass	['bob...ucy']	['bob...ucy']	Testing that sublist(['bob', 'joe', 'lucy', 'STOP', 'carol', 'james']) returns ['bob', 'joe', 'lucy']
+Pass	[]	[]	Testing that sublist(['STOP']) returns []
+Pass	['jac...aul']	['jac...aul']	Testing that sublist(['jackie', 'paul', 'STOP']) returns ['jackie', 'paul']
+You passed: 100.0% of the tests
+
+Not yet graded
+Write a function called stop_at_z that iterates through a list of strings. Using a while loop, append each string to a new list until the string that appears is “z”. The function should return the new list.
+
+6.5.2020, 22:09:15 - 3 of 3
+def stop_at_z(str_lst):
+    new_lst = []
+    i = 0
+    while "z" != str_lst[i] and i < len(str_lst):
+        new_lst.append(str_lst[i])
+        i += 1
+    return new_lst
+1
+​
+2
+def stop_at_z(str_lst):
+3
+    new_lst = []
+4
+    i = 0
+5
+    while "z" != str_lst[i] and i < len(str_lst):
+6
+        new_lst.append(str_lst[i])
+7
+        i += 1
+8
+    return new_lst
+9
+​
+10
+​
+ActiveCode (ac14_10_4)
+
+Result	Actual Value	Expected Value	Notes
+Pass	['c',... 'r']	['c',... 'r']	Testing the function stop_at_z on the input ['c', 'b', 'd', 'zebra', 'h', 'r', 'z', 'm', 'a', 'k'].
+Pass	['zoo...azz']	['zoo...azz']	Testing the function stop_at_z on the input ['zoo', 'zika', 'ozzie', 'pizzazz', 'z', 'pizza', 'zap', 'haze'].
+Pass	[]	[]	Testing the function stop_at_z on the input ['z'].
+You passed: 100.0% of the tests
+
+Not yet graded
+Below is a for loop that works. Underneath the for loop, rewrite the problem so that it does the same thing, but using a while loop instead of a for loop. Assign the accumulated total in the while loop code to the variable sum2. Once complete, sum2 should equal sum1.
+
+6.5.2020, 22:11:14 - 2 of 2
+
+sum1 = 0
+
+lst = [65, 78, 21, 33]
+
+for x in lst:
+    sum1 = sum1 + x
+
+sum2 = 0
+i = 0
+while i < len(lst):
+    sum2 += lst[i]
+    i += 1
+1
+​
+2
+sum1 = 0
+3
+​
+4
+lst = [65, 78, 21, 33]
+5
+​
+6
+for x in lst:
+7
+    sum1 = sum1 + x
+8
+​
+9
+sum2 = 0
+10
+i = 0
+11
+while i < len(lst):
+12
+    sum2 += lst[i]
+13
+    i += 1
+ActiveCode (ac14_10_5)
+
+Result	Actual Value	Expected Value	Notes
+Pass	197	197	Testing that sum2 is assigned to correct value.
+Pass	'while'	'\nsum1... += 1'	Testing your code (Don't worry about actual and expected values).
+You passed: 100.0% of the tests
+
+Not yet graded
+Challenge: Write a function called beginning that takes a list as input and contains a while loop that only stops once the element 
+of the list is the string ‘bye’. What is returned is a list that contains up to the first 10 strings, regardless of where the loop stops.
+(i.e., if it stops on the 32nd element, the first 10 are returned. If “bye” is the 5th element, the first 4 are returned.) 
+If you want to make this even more of a challenge, do this without slicing.
+###
+def beginning(lst):
+    i = 0
+    new_lst = list()
+    while "bye" != lst[i] and i < 10: #No need to slice --> just use the index
+        new_lst.append(lst[i])
+        i += 1
+    return new_lst
+ 

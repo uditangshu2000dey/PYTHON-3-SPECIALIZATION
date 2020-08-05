@@ -1,0 +1,74 @@
+punctuation_chars = ["'", '"', ",", ".", "!", ":", ";", '#', '@']
+
+#Getting rid of all elements that are in list "punctuation_chars"
+def strip_punctuation(input_string):
+    clean_string = ""
+    for s in input_string:
+        if s in punctuation_chars:
+            clean_string += s.replace(s, "")
+            
+        else:
+            clean_string += s
+    return clean_string
+
+#Counting all "negative" words in a string
+def get_neg(input_string):
+    clean_string = strip_punctuation(input_string)
+    lower_string_lst = clean_string.lower().split()
+    negative_count = 0
+    for word in lower_string_lst:
+        if word in negative_words:
+            negative_count += 1
+    return negative_count
+
+#Counting all "positive" words in a string
+def get_pos(input):
+    clean_input = strip_punctuation(input)
+    lower_input= clean_input.lower().split()
+    pos_count = 0
+    for word in lower_input:
+        if word in positive_words:
+            pos_count += 1
+    return pos_count
+        
+#Creating a list of all positive words
+positive_words = []
+with open("positive_words.txt") as pos_f:
+    for lin in pos_f:
+        if lin[0] != ';' and lin[0] != '\n':
+            positive_words.append(lin.strip())
+
+
+#Creating a list of all negative words
+negative_words = []
+with open("negative_words.txt") as pos_f:
+    for lin in pos_f:
+        if lin[0] != ';' and lin[0] != '\n':
+            negative_words.append(lin.strip())
+            
+#Filehandle of file that I wish to open
+file_handle = "project_twitter_data.csv"
+
+
+#Opening the File and storing two lists --> Line by Line
+with open(file_handle) as twitter_df:
+    complete_tweet_lst = twitter_df.readlines()
+    tweet_lst = complete_tweet_lst[1:]
+    
+#File I wish to write to
+out = open("resulting_data.csv", "w")
+
+#Creating the header variables/parameters in CSV
+out.write("Number of Retweets, Number of Replies, Positive Score, Negative Score, Net Score\n")
+
+
+#Creating the Data
+tweet_id = 0
+for tweet in tweet_lst:
+    tweet_retweetcount = int((tweet.split()[-1]).split(",")[-2]) #I checked the CSV --> Pattern that last string element contains the numbers we look for and then created a list, where I selected the required element
+    tweet_sharecount = int((tweet.split()[-1]).split(",")[-1])
+    tweet_positive = get_pos(tweet)
+    tweet_negative = get_neg(tweet)
+    out.write("{},{},{},{},{}\n".format(tweet_retweetcount, tweet_sharecount,tweet_positive, tweet_negative, tweet_positive - tweet_negative)) #Creating a string with all necessary input, seperated by colons
+    tweet_id += 1
+    
